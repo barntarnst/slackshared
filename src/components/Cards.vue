@@ -17,7 +17,7 @@ export default {
   },
   methods: {
     add: (self) => {
-      self.$store.commit('add', 10)
+      self.$store.commit('fetchfromApi')
     }
   },
   beforeMount () {

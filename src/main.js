@@ -2,6 +2,7 @@
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
 import Vuex from 'vuex'
+import axios from 'axios'
 import App from './App'
 
 Vue.config.productionTip = false
@@ -13,10 +14,17 @@ const store = new Vuex.Store({
   },
   mutations: {
     add (state, link) {
-      state.links.push(link)
+      this.state.links.push(link)
     },
-    fetchfromApi (latest) {
-      //  Fetch from api
+    fetchfromApi (state) {
+      console.log(state.links)
+      axios.get('http://localhost/shareshared/slackshare/shared')
+        .then((response) => {
+          state.links.push(response.data.messages)
+        })
+        .catch((error) => {
+          console.log(error)
+        })
     }
   }
 })

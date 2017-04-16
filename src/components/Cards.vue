@@ -1,16 +1,29 @@
 <template>
   <div class="cards">
-    cards here
+    <ol>
+      <li> Links:</li>
+      <li v-for='card in links'>{{ card }}</li>
+    </ol>
   </div>
 </template>
 
 <script>
-
 export default {
   name: 'cards',
   data () {
     return {
+      links: this.$store.state.links
     }
+  },
+  methods: {
+    add: (self) => {
+      self.$store.commit('add', 10)
+    }
+  },
+  beforeMount () {
+    this.add(this)
+  },
+  watch: {
   },
   components: {
   }

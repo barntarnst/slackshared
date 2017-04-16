@@ -1,6 +1,6 @@
 # slackshare
 
-> Browse Accomplice Shared Channel on Slack
+> Browse Accomplice Shared Channel on Slack (will update to any channel on anyones Slack)
 
 ## Build Setup
 

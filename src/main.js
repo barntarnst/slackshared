@@ -10,17 +10,18 @@ Vue.use(Vuex)
 
 const store = new Vuex.Store({
   state: {
-    links: [1, 2, 3]
+    links: []
   },
   mutations: {
     add (state, link) {
       this.state.links.push(link)
     },
     fetchfromApi (state) {
-      console.log(state.links)
       axios.get('http://localhost/shareshared/slackshare/shared')
         .then((response) => {
-          state.links.push(response.data.messages)
+          for (var i = 0; i < response.data.messages.length; i++) {
+            state.links.push(response.data.messages[i])
+          };
         })
         .catch((error) => {
           console.log(error)

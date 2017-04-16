@@ -17,6 +17,7 @@ export default {
   },
   methods: {
     add: (self) => {
+      console.log('adding')
       self.$store.commit('fetchfromApi')
     }
   },

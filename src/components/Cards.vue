@@ -2,7 +2,7 @@
   <div class="cards">
     <ol>
       <li> Links:</li>
-      <li v-for='card in links'>{{ card }}</li>
+      <li v-for='card in links'><img :src='card.attachments[0].image_url'></li>
     </ol>
   </div>
 </template>
@@ -17,7 +17,6 @@ export default {
   },
   methods: {
     add: (self) => {
-      console.log('adding')
       self.$store.commit('fetchfromApi')
     }
   },

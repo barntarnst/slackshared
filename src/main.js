@@ -19,8 +19,8 @@ const store = new Vuex.Store({
     fetchfromApi (state) {
       axios.get('http://localhost/shareshared/slackshare/shared')
         .then((response) => {
-          for (var i = 0; i < response.data.messages.length; i++) {
-            state.links.push(response.data.messages[i])
+          for (var i = 0; i < response.data.length; i++) {
+            state.links.push(response.data[i])
           };
         })
         .catch((error) => {

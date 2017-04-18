@@ -1,9 +1,12 @@
 <template>
   <div class="cards">
-    <ol>
-      <li> Links:</li>
-      <li v-for='card in links'><img :src='card.attachments[0].image_url'></li>
-    </ol>
+    <div class="cards-wrapper">
+      <div v-for='card in links' class="card">
+        <a :href='card.attachments[0].from_url' target="_blank">
+          <img :src='card.attachments[0].image_url'>
+        </a>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -23,6 +26,8 @@ export default {
   beforeMount () {
     this.add(this)
   },
+  mounted () {
+  },
   watch: {
   },
   components: {
@@ -31,5 +36,12 @@ export default {
 </script>
 
 <style>
-
+.card {
+  display: inline-block;
+  padding-right: 20px;
+  vertical-align: top;
+}
+.card img {
+  width: 300px;
+}
 </style>

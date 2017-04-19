@@ -14,13 +14,15 @@ const store = new Vuex.Store({
   },
   mutations: {
     add (state, link) {
-      this.state.links.push(link)
-    },
-    fetchfromApi (state) {
+      state.links.push(link)
+    }
+  },
+  actions: {
+    fetchfromApi ({ commit }) {
       axios.get('http://localhost/shareshared/slackshare/shared')
         .then((response) => {
           for (var i = 0; i < response.data.length; i++) {
-            state.links.push(response.data[i])
+            commit('add', response.data[i])
           };
         })
         .catch((error) => {

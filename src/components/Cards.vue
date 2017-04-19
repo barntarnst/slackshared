@@ -15,12 +15,16 @@ export default {
   name: 'cards',
   data () {
     return {
-      links: this.$store.state.links
+    }
+  },
+  computed: {
+    links () {
+      return this.$store.state.links
     }
   },
   methods: {
     add: (self) => {
-      self.$store.commit('fetchfromApi')
+      self.$store.dispatch('fetchfromApi')
     }
   },
   beforeMount () {

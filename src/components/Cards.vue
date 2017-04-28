@@ -47,9 +47,22 @@ export default {
   background-size: cover;
   background-position: center center;
   background-color: red;
-  background-blend-mode: multiply;
+  background-blend-mode: darken;
   color: #fff;
   text-decoration: none;
+  box-sizing: border-box;
+}
+.card:nth-child(4n+1) a {
+  background-color: #c22326;
+}
+.card:nth-child(4n+2) a {
+  background-color: #fdb632;
+}
+.card:nth-child(4n+3) a {
+  background-color: #027878;
+}
+.card:nth-child(4n+4) a {
+  background-color: #801638;
 }
 .cell {
   display: table-cell;
@@ -69,5 +82,12 @@ export default {
   max-width: 1100px;
   padding: 30px;
   line-height: 60px;
+  font-weight: bold;
+}
+@media (max-width: 600px) {
+  .card .title {
+    font-size: 28px;
+    line-height: 35px;
+  }
 }
 </style>

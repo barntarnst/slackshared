@@ -51,6 +51,11 @@ export default {
   color: #fff;
   text-decoration: none;
   box-sizing: border-box;
+  transition: all 0.1s ease-in-out;
+}
+.card a:hover {
+  background-blend-mode: multiply;
+  transition: all 0.1s ease-in-out;
 }
 .card:nth-child(4n+1) a {
   background-color: #c22326;
@@ -83,6 +88,10 @@ export default {
   padding: 30px;
   line-height: 60px;
   font-weight: bold;
+}
+.card:hover .title {
+  transition: all 0.2s ease-in-out;
+  transform: scale(1.1);
 }
 @media (max-width: 600px) {
   .card .title {

@@ -88,15 +88,24 @@ export default {
   padding: 30px;
   line-height: 60px;
   font-weight: bold;
+  transition: all 0.2s ease-in-out;
+  transform: scale(1.0);
 }
 .card:hover .title {
   transition: all 0.2s ease-in-out;
   transform: scale(1.1);
 }
 @media (max-width: 600px) {
+  .cell {
+    padding: 10px;
+  }
   .card .title {
-    font-size: 28px;
+    font-size: 29px;
+    padding: 10px;
     line-height: 35px;
+  }
+  .card .service {
+    font-size: 11px;
   }
 }
 </style>

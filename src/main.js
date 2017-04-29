@@ -24,16 +24,19 @@ const store = new Vuex.Store({
   actions: {
     fetchfromApi ({ commit }) {
       commit('loader', true)
-      axios.get('http://localhost/shareshared/slackshare/shared')
-        .then((response) => {
-          for (var i = 0; i < response.data.length; i++) {
-            commit('add', response.data[i])
-          };
-          commit('loader', false)
-        })
-        .catch((error) => {
-          console.log(error)
-        })
+      axios.get('https://accomplice.se/services/Slackshare/shared', [], {
+        onUploadProgress: (progressEvent) => {
+          console.log(progressEvent)
+        }
+      }).then((response) => {
+        for (var i = 0; i < response.data.length; i++) {
+          commit('add', response.data[i])
+        }
+        commit('loader', false)
+      })
+      .catch((error) => {
+        console.log(error)
+      })
     }
   }
 })

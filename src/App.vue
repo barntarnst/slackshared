@@ -1,6 +1,8 @@
 <template>
   <div id="app">
-    <div class='loader' v-if='loading'>loading...</div>
+    <div class='loader' v-if='loading'>
+      <div class='bar'></div>
+    </div>
     <cards v-if="!loading"></cards>
   </div>
 </template>
@@ -29,6 +31,25 @@ html, body {
   padding: 0;
   margin: 0;
   font-family: monospace;
+}
+@keyframes loading {
+    from { width: 0%; }
+    to { width: 100%; }
+}
+.loader {
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  z-index: 99;
+  background-color: #c22326;
+}
+.loader .bar {
+  background-color: #fdb632;
+  animation-name: loading;
+  animation-duration: 2s;
+  height: 100%;
 }
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
